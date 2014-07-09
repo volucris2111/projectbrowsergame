@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+	<definition name="mainTemplate" path="/core/mainTemplate.jsp">
+		<put name="head" value="/home/HeadPreAction.do"/>
+		<put name="firstNav" value="/core/mainNav.jsp"/>
+		<put name="secNav" value="/home/homeNav.jsp"/>
+		<put name="body" value="/core/blank.jsp"/>
+	</definition>
+	<definition name="adventureWorld" extends="mainTemplate">
+		<put name="body" value="/adventure/AdventureWorldPreAction.do"/>
+	</definition>
+	<definition name="buildingCreate" extends="mainTemplate">
+		<put name="body" value="/adventure/BuildingCreatePreAction.do"/>
+	</definition>
+	<definition name="buildingDetails" extends="mainTemplate">
+		<put name="body" value="/adventure/BuildingDetailsPreAction.do"/>
+	</definition>
+	<definition name="buildingOverview" extends="mainTemplate">
+		<put name="body" value="/adventure/BuildingOverviewPreAction.do"/>
+	</definition>
+	<definition name="locationDetails" extends="mainTemplate">
+		<put name="body" value="/adventure/LocationDetailsPreAction.do"/>
+	</definition>
+	<definition name="locationControl" extends="mainTemplate">
+		<put name="body" value="/adventure/LocationControlPreAction.do"/>
+	</definition>
+	<definition name="locationOverview" extends="mainTemplate">
+		<put name="body" value="/adventure/LocationOverviewPreAction.do"/>
+	</definition>
+	<definition name="locationFreeMarket" extends="mainTemplate">
+		<put name="body" value="/adventure/LocationFreeMarketPreAction.do"/>
+	</definition>
+	<definition name="locationTownHall" extends="mainTemplate">
+		<put name="body" value="/adventure/LocationTownHallPreAction.do"/>
+	</definition>
+	<definition name="locationTavern" extends="mainTemplate">
+		<put name="body" value="/adventure/LocationTavernPreAction.do"/>
+	</definition>
+	<definition name="market" extends="mainTemplate">
+		<put name="body" value="/adventure/MarketPreAction.do"/>
+	</definition>
+	<definition name="marketEdit" extends="mainTemplate">
+		<put name="body" value="/adventure/MarketEditPreAction.do"/>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+	<definition name="mainTemplate" path="/core/mainTemplate.jsp">
+		<put name="head" value="/home/HeadPreAction.do"/>
+		<put name="firstNav" value="/core/mainNav.jsp"/>
+		<put name="secNav" value="/avatar/avatarNav.jsp"/>
+		<put name="body" value="/core/blank.jsp"/>
+	</definition>
+	<definition name="avatarCreate" extends="mainTemplate">
+		<put name="body" value="/avatar/AvatarCreatePre.do"/>
+		<put name="secNav" value="/core/blank.jsp"/>
+	</definition>
+	<definition name="avatarDetails" extends="mainTemplate">
+		<put name="body" value="/avatar/AvatarDetailsPre.do"/>
+	</definition>
+	<definition name="avatarInventory" extends="mainTemplate">
+		<put name="body" value="/avatar/AvatarInventoryPre.do"/>
+	</definition>
+	<definition name="avatarGroup" extends="mainTemplate">
+		<put name="body" value="/avatar/AvatarGroupPre.do"/>
+	</definition>
+</tiles-definitions>

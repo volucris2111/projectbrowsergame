@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+			<form-bean name="loginForm" type="com.browsergame.project.login.view.LoginForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards>
+		<forward name="notLoggedin" path="/Login.do"/>
+	</global-forwards>
+	<action-mappings>
+		<action path="/Login" scope="session" name="loginForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="login" />
+		</action>
+		<action path="/IndexAction" scope="session" name="loginForm" type="com.browsergame.project.core.controller.IndexAction">
+			<forward name="alreadyLoggedin" path="/home/HomeStartAction.do"/>
+		</action>
+		<action path="/LoginPreAction" scope="session" name="loginForm" type="com.browsergame.project.login.controller.LoginPreAction">
+			<forward name="success" path="/login/login.jsp" />
+		</action>
+		<action path="/LoginPostAction" scope="session" name="loginForm" type="com.browsergame.project.login.controller.LoginPostAction">
+			<forward name="success" path="/index.jsp"/>
+			<forward name="failure" path="/Login.do" />
+			<forward name="register" path="/UserCreateStartAction.do" />
+		</action>
+		<action path="/Logout" scope="session" name="loginForm" type="com.browsergame.project.login.controller.LogoutAction">
+			<forward name="success" path="/Login.do" redirect="true"/>
+		</action>
+		<action path="/UserCreateStartAction" scope="session" name="loginForm" type="com.browsergame.project.user.controller.UserCreateStartAction">
+			<forward name="success" path="/UserCreate.do"/>
+		</action>
+		<action path="/UserCreate" scope="session" name="loginForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="userCreate"/>
+		</action>
+		<action path="/UserCreatePreAction" scope="session" name="loginForm" type="com.browsergame.project.user.controller.UserCreatePreAction">
+			<forward name="success" path="/user/userCreate.jsp"/>
+		</action>
+		<action path="/UserCreatePostAction" scope="session" name="loginForm" type="com.browsergame.project.user.controller.UserCreatePostAction">
+			<forward name="success" path="/Login.do"/>
+			<forward name="failure" path="/UserCreate.do" />
+			<forward name="back" path="/Login.do"/>
+		</action>
+	</action-mappings>
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-config.xml"/>
+		<set-property property="moduleAware" value="true"/>
+		<set-property property="definitions-parser-validate" value="true"/>
+	</plug-in>
+</struts-config>

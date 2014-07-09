@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="avatarForm"
+			type="com.browsergame.project.avatar.view.AvatarForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards>
+		<forward name="notLoggedin" path="/Login.do" module="/"/>
+	</global-forwards>
+	<action-mappings>
+		<action path="/AvatarStart" scope="session" name="avatarForm"
+			type="com.browsergame.project.avatar.controller.AvatarStartAction">
+			<forward name="avatarCreate" path="avatarCreate" />
+			<forward name="success" path="avatarDetails"/>
+		</action>
+		<action path="/AvatarCreatePre" scope="session" name="avatarForm" type="com.browsergame.project.avatar.controller.AvatarCreatePreAction">
+			<forward name="success" path="/avatarCreate.jsp"/>
+		</action>
+		<action path="/AvatarCreatePost" scope="session" name="avatarForm" type="com.browsergame.project.avatar.controller.AvatarCreatePostAction">
+			<forward name="success" path="avatarDetails"/>
+			<forward name="reload" path="avatarCreate"/>
+		</action>
+		<action path="/AvatarDetailsPre" scope="session" name="avatarForm" type="com.browsergame.project.avatar.controller.AvatarDetailsPreAction">
+			<forward name="success" path="/avatarDetails.jsp"/>
+		</action>
+		<action path="/AvatarDetailsPost" scope="session" name="avatarForm" type="com.browsergame.project.avatar.controller.AvatarDetailsPostAction">
+			<forward name="success" path="avatarDetails"/>
+			<forward name="viewGroup" path="avatarGroup"/>
+			<forward name="battlePreparation" path="/BattleStart.do" module="/battle"/>
+		</action>
+		<action path="/AvatarInventory" scope="session" name="avatarForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="avatarInventory"/>
+		</action>
+		<action path="/AvatarInventoryPre" scope="session" name="avatarForm" type="com.browsergame.project.avatar.controller.AvatarInventoryPreAction">
+			<forward name="success" path="/avatarInventory.jsp"/>
+		</action>
+		<action path="/AvatarGroup" scope="session" name="avatarForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="avatarGroup"/>
+		</action>
+		<action path="/AvatarGroupPre" scope="session" name="avatarForm" type="com.browsergame.project.avatar.controller.AvatarGroupPreAction">
+			<forward name="success" path="/avatarGroup.jsp"/>
+		</action>
+		<action path="/AvatarGroupPost" scope="session" name="avatarForm" type="com.browsergame.project.avatar.controller.AvatarGroupPostAction">
+			<forward name="back" path="avatarDetails"/>
+		</action>
+	</action-mappings>
+<plug-in className="org.apache.struts.tiles.TilesPlugin">
+	<set-property property="definitions-config" value="/WEB-INF/tiles-config-avatar.xml"/>
+	<set-property property="moduleAware" value="true"/>
+	<set-property property="definitions-parser-validate" value="true"/>
+</plug-in>
+</struts-config>

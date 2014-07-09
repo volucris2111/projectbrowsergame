@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="battleForm"
+			type="com.browsergame.project.battle.view.BattleForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards>
+		<forward name="notLoggedin" path="/Login.do" module="/"/>
+	</global-forwards>
+	<action-mappings>
+		<action path="/BattleStart" scope="session" name="battleForm"
+			type="com.browsergame.project.battle.controller.BattleStartAction">
+			<forward name="success" path="battlePreparation"/>
+		</action>
+		<action path="/BattlePreparationPre" scope="session" name="battleForm" type="com.browsergame.project.battle.controller.BattlePreparationPreAction">
+			<forward name="success" path="/battlePreparation.jsp"/>
+		</action>
+		<action path="/BattlePreparationPost" scope="session" name="battleForm" type="com.browsergame.project.battle.controller.BattlePreparationPostAction">
+			<forward name="failure" path="battlePreparation"/>
+			<forward name="success" path="battleDetails"/>
+		</action>
+		<action path="/BattleDetailsPre" scope="session" name="battleForm" type="com.browsergame.project.battle.controller.BattleDetailsPreAction">
+			<forward name="success" path="/battleDetails.jsp"/>
+		</action>
+		<action path="/BattleDetailsPost" scope="session" name="battleForm" type="com.browsergame.project.battle.controller.BattleDetailsPostAction">
+			<forward name="success" path="battleDetails"/>
+		</action>
+	</action-mappings>
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-config-battle.xml"/>
+		<set-property property="moduleAware" value="true"/>
+		<set-property property="definitions-parser-validate" value="true"/>
+	</plug-in>
+</struts-config>

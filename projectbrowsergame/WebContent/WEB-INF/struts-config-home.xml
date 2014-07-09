@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="homeForm"
+			type="com.browsergame.project.home.view.HomeForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards>
+		<forward name="notLoggedin" path="/Login.do" module="/"/>
+	</global-forwards>
+	<action-mappings>
+		<action path="/HomeStartAction" scope="session" name="homeForm"
+			type="com.browsergame.project.core.controller.HomePreAction">
+			<forward name="success" path="home" />
+		</action>
+		<action path="/HeadPreAction" scope="session" name="homeForm" type="com.browsergame.project.core.controller.HeadPreAction">
+			<forward name="success" path="/head.jsp"/>
+		</action>
+	</action-mappings>
+<plug-in className="org.apache.struts.tiles.TilesPlugin">
+<set-property property="definitions-config" value="/WEB-INF/tiles-config-home.xml"/>
+<set-property property="moduleAware" value="true"/>
+<set-property property="definitions-parser-validate" value="true"/>
+</plug-in>
+</struts-config>

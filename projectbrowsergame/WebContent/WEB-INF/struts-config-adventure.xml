@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="adventureForm"
+			type="com.browsergame.project.adventure.view.AdventureForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards>
+		<forward name="notLoggedin" path="/Login.do" module="/"/>
+	</global-forwards>
+	<action-mappings>
+		<action path="/AdventureStartAction" scope="session" name="adventureForm"
+			type="com.browsergame.project.adventure.controller.AdventureStartAction">
+			<forward name="success" path="adventureWorld" />
+			<forward name="avatarCreate" path="/AvatarStart.do" module="/avatar"/>
+			<forward name="buildingDetails" path="/BuildingDetails.do"/>
+			<forward name="locationDetails" path="/LocationDetails.do"/>
+		</action>
+		<action path="/AdventureWorldPreAction" scope="session" name="adventureForm" type="com.browsergame.project.adventure.controller.AdventureWorldPreAction">
+			<forward name="success" path="/adventureWorld.jsp"/>
+		</action>
+		<action path="/AdventureWorldPostAction" scope="session" name="adventureForm" type="com.browsergame.project.adventure.controller.AdventureWorldPostAction">
+			<forward name="success" path="adventureWorld"/>
+			<forward name="avatarDetails" path="/AvatarStart.do" module="/avatar"/>
+			<forward name="buildingCreate" path="/BuildingCreate.do"/>
+			<forward name="buildingDetails" path="/BuildingDetails.do"/>
+			<forward name="buildingOverview" path="/BuildingOverview.do"/>
+			<forward name="locationControl" path="/LocationControl.do"/>
+			<forward name="locationDetails" path="/LocationDetails.do"/>
+			<forward name="locationOverview" path="/LocationOverview.do"/>
+		</action>
+		<action path="/AjaxMapLoad" scope="session" name="adventureForm"
+			type="com.browsergame.project.adventure.controller.AjaxMapLoad">
+				<forward name="success" path="/adventureWorldMapInclude.jsp"/>
+			</action>
+		<action path="/AjaxBuildingUpgradeCostStartAction" scope="session" name="adventureForm"
+			type="com.browsergame.project.building.controller.AjaxBuildingUpgradeCostStartAction"/>
+		<action path="/BuildingCreate" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="buildingCreate"/>
+		</action>
+		<action path="/BuildingCreatePreAction" scope="session" name="adventureForm" type="com.browsergame.project.building.controller.BuildingCreatePreAction">
+			<forward name="success" path="/../building/buildingCreate.jsp"/>
+		</action>
+		<action path="/BuildingCreatePostAction" scope="session" name="adventureForm" type="com.browsergame.project.building.controller.BuildingCreatePostAction">
+			<forward name="success" path="/AdventureStartAction.do"/>
+			<forward name="back" path="adventureWorld" />
+		</action>
+		<action path="/BuildingOverview" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="buildingOverview"/>
+		</action>
+		<action path="/BuildingOverviewPreAction" scope="session" name="adventureForm" type="com.browsergame.project.building.controller.BuildingOverviewPreAction">
+			<forward name="success" path="/../building/buildingOverview.jsp"/>
+		</action>
+		<action path="/BuildingOverviewPostAction" scope="session" name="adventureForm" type="com.browsergame.project.building.controller.BuildingOverviewPostAction">
+			<forward name="success" path="/AdventureStartAction.do"/>
+			<forward name="back" path="/AdventureStartAction.do"/>
+		</action>
+		<action path="/BuildingDetails" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="buildingDetails"/>
+		</action>
+		<action path="/BuildingDetailsPreAction" scope="session" name="adventureForm" type="com.browsergame.project.building.controller.BuildingDetailsPreAction">
+			<forward name="success" path="/../building/buildingDetails.jsp"/>
+		</action>
+		<action path="/BuildingDetailsPostAction" scope="session" name="adventureForm" type="com.browsergame.project.building.controller.BuildingDetailsPostAction">
+			<forward name="buildingStorage" path="/BuildingStorage.do"/>
+			<forward name="map" path="adventureWorld"/>
+			<forward name="leave" path="/AdventureStartAction.do"/>
+			<forward name="success" path="/BuildingDetails.do"/>
+		</action>
+		<action path="/LocationOverview" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="locationOverview"/>
+		</action>
+		<action path="/LocationOverviewPreAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationOverviewPreAction">
+			<forward name="success" path="/../location/locationOverview.jsp"/>
+		</action>
+		<action path="/LocationOverviewPostAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationOverviewPostAction">
+			<forward name="success" path="/AdventureStartAction.do"/>
+			<forward name="back" path="/AdventureStartAction.do"/>
+		</action>
+		<action path="/LocationDetails" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="locationDetails"/>
+		</action>
+		<action path="/LocationDetailsPreAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationDetailsPreAction">
+			<forward name="success" path="/../location/locationDetails.jsp"/>
+		</action>
+		<action path="/LocationDetailsPostAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationDetailsPostAction">
+			<forward name="map" path="adventureWorld"/>
+			<forward name="leave" path="/AdventureStartAction.do"/>
+			<forward name="tavern" path="locationTavern"/>
+			<forward name="locationFreeMarket" path="/LocationFreeMarket.do"/>
+			<forward name="townHall" path="locationTownHall"/>
+		</action>
+		<action path="/LocationControl" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="locationControl"/>
+		</action>
+		<action path="/LocationControlPreAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationControlPreAction">
+			<forward name="success" path="/../location/locationControl.jsp"/>
+		</action>
+		<action path="/LocationControlPostAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationControlPostAction">
+			<forward name="success" path="/AdventureStartAction.do"/>
+		</action>
+		
+		<action path="/LocationTavern" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="locationTavern"/>
+		</action>
+		<action path="/LocationTavernPreAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationTavernPreAction">
+			<forward name="success" path="/../location/locationTavern.jsp"/>
+		</action>
+		<action path="/LocationTavernPostAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationTavernPostAction">
+			<forward name="success" path="locationTavern"/>
+		</action>
+		<action path="/LocationFreeMarket" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="locationFreeMarket"/>
+		</action>
+		<action path="/LocationFreeMarketPreAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationFreeMarketPreAction">
+			<forward name="success" path="/../location/locationFreeMarket.jsp"/>
+		</action>
+		<action path="/LocationFreeMarketPostAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationFreeMarketPostAction">
+			<forward name="success" path="/LocationFreeMarket.do"/>
+			<forward name="changeMarket" path="/Market.do"/>
+			<forward name="back" path="/AdventureStartAction.do"/>
+		</action>
+		<action path="/Market" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="market"/>
+		</action>
+		<action path="/MarketPreAction" scope="session" name="adventureForm" type="com.browsergame.project.market.controller.MarketPreAction">
+			<forward name="success" path="/../market/market.jsp"/>
+		</action>
+		<action path="/MarketPostAction" scope="session" name="adventureForm" type="com.browsergame.project.market.controller.MarketPostAction">
+			<forward name="success" path="/Market.do"/>
+			<forward name="edit" path="/MarketEdit.do"/>
+			<forward name="adventureMap" path="/AdventureStartAction.do"/>
+			<forward name="buildingDetails" path="/BuildingDetails.do"/>
+			<forward name="changeMarket" path="/Market.do"/>
+			<forward name="locationFreeMarket" path="/LocationFreeMarket.do"/>
+			<forward name="back" path="/AdventureStartAction.do"/>
+		</action>
+		<action path="/LocationTownHall" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="locationTownHall"/>
+		</action>
+		<action path="/LocationTownHallPreAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationTownHallPreAction">
+			<forward name="success" path="/../location/locationTownHall.jsp"/>
+		</action>
+		<action path="/LocationTownHallPostAction" scope="session" name="adventureForm" type="com.browsergame.project.location.controller.LocationTownHallPostAction">
+			<forward name="success" path="/LocationTownHall.do"/>
+		</action>
+		<action path="/MarketEdit" scope="session" name="adventureForm" type="com.browsergame.project.core.controller.StandardActionSuccess">
+			<forward name="success" path="marketEdit"/>
+		</action>
+		<action path="/MarketEditPreAction" scope="session" name="adventureForm" type="com.browsergame.project.market.controller.MarketEditPreAction">
+			<forward name="success" path="/../market/marketEdit.jsp"/>
+		</action>
+		<action path="/MarketEditPostAction" scope="session" name="adventureForm" type="com.browsergame.project.market.controller.MarketEditPostAction">
+			<forward name="success" path="/MarketEdit.do"/>
+			<forward name="back" path="/Market.do"/>
+		</action>
+	</action-mappings>
+<plug-in className="org.apache.struts.tiles.TilesPlugin">
+<set-property property="definitions-config" value="/WEB-INF/tiles-config-adventure.xml"/>
+<set-property property="moduleAware" value="true"/>
+<set-property property="definitions-parser-validate" value="true"/>
+</plug-in>
+</struts-config>

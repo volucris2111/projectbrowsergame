@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/person/personCreate.jsp" location="650,650" dimension="164,51" />
+  <StrutsActivity path="/index.jsp" location="950,50" dimension="94,53" />
+  <StrutsActivity path="/person/personSearch.jsp" location="950,1250" dimension="165,51" />
+  <StrutsActivity path="/person/personDetails.jsp" location="1250,1250" dimension="165,51" />
+  <StrutsActivity path="/create.jsp" location="50,550" dimension="85,51" />
+  <StrutsActivity path="/search.jsp" location="950,1450" dimension="87,51" />
+  <StrutsActivity path="/searchResult.jsp" location="650,450" dimension="119,51" />
+  <StrutsActivity path="/editPerson.jsp" location="650,1450" dimension="109,51" />
+  <StrutsActivity path="/personDetail.jsp" location="1250,850" dimension="119,51" />
+  <StrutsActivity path="/deleteAuthorisationPerson.jsp" location="50,1450" dimension="193,51" />
+  <StrutsActivity path="/addGroup.jsp" location="1250,1650" dimension="106,51" />
+  <StrutsActivity path="/groupDetail.jsp" location="650,2050" dimension="115,51" />
+  <StrutsActivity path="/addGroupSuccess.jsp" location="1550,1250" dimension="147,51" />
+  <StrutsActivity path="/deleteAuthorisationGroup.jsp" location="650,1850" dimension="190,51" />
+  <StrutsActivity path="/editGroup.jsp" location="350,1450" dimension="106,51" />
+  <StrutsActivity path="" location="950,850" dimension="30,51" />
+  <StrutsActivity path="/deleteAuthorisation.jsp" location="1250,1450" dimension="157,51" />
+  <StrutsActivity path="/PersonDetail" location="650,850" dimension="101,51" />
+  <StrutsActivity path="/done.jsp" location="50,350" dimension="80,51" />
+  <StrutsActivity path="indexForm" location="650,50" dimension="101,53" />
+  <StrutsActivity path="/welcome.jsp" location="650,250" dimension="101,51" />
+  <StrutsActivity path="/error.jsp" location="350,350" dimension="78,51" />
+  <StrutsActivity path="/i" location="650,1250" dimension="38,51" />
+  <StrutsActivity path="/AddGroupPre.o" location="1550,550" dimension="117,51" />
+  <StrutsActivity path="/PersonCreatePreAction.do" />
+  <StrutsActivity path="/PersonCreatePostAction.do" />
+  <StrutsActivity path="/PersonSearchStartAction.do" />
+  <StrutsActivity path="/PersonSearchPreAction.do" />
+  <StrutsActivity path="/PersonSearchPostAction.do" />
+  <StrutsActivity path="/PersonDetailsPreAction.do" />
+  <StrutsActivity path="/PersonDetailsPostAction.do" />
+  <StrutsTransition id="/PersonSearchPre.do,success,/person/personSearch.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="412,998" />
+      <AbsolutePoint location="1039,998" />
+      <AbsolutePoint location="1039,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchPost.do,back,/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="837,1050" />
+      <AbsolutePoint location="837,76" />
+      <AbsolutePoint location="950,76" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonDetailsPost.do,edit,/PersonDetailsPre.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="406,1198" />
+      <AbsolutePoint location="1430,1198" />
+      <AbsolutePoint location="1430,1146" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchStartAction.do,success,/person/personSearch.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="1032,1275" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchPostAction.do,back,/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="997,76" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonCreatePre.do,success,/person/personCreate.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,586" />
+      <AbsolutePoint location="732,586" />
+      <AbsolutePoint location="732,650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonCreatePostAction.do,back,/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="997,76" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchPost.do,search,/PersonSearchPre.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,1098" />
+      <AbsolutePoint location="261,1098" />
+      <AbsolutePoint location="261,1046" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonDetailsPost.do,back,/PersonSearchPre.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="231,1150" />
+      <AbsolutePoint location="231,1046" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonDetailsPreAction.do,success,/person/personDetails.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="1332,1275" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchPostAction.do,search,/PersonSearchPreAction.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchPreAction.do,success,/person/personSearch.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="1032,1275" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonDetailsPre.do,success,/person/personDetails.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1332,1146" />
+      <AbsolutePoint location="1332,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonCreatePost.do,back,/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="230,798" />
+      <AbsolutePoint location="997,76" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchStart.do,success,/person/personSearch.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="1032,1275" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonDetailsPostAction.do,edit,/PersonDetailsPreAction.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchPost.do,details,/PersonDetailsPre.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1024,1098" />
+      <AbsolutePoint location="1250,1098" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonCreatePostAction.do,reload,/PersonCreatePreAction.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonSearchPostAction.do,details,/PersonDetailsPreAction.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonCreatePreAction.do,success,/person/personCreate.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="732,675" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonCreatePost.do,reload,/PersonCreatePre.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="230,798" />
+      <AbsolutePoint location="1127,598" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/PersonDetailsPostAction.do,back,/PersonSearchPreAction.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+
